@@ -1,0 +1,106 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.footer {
+  height: 35rem;
+  position: relative;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.4),
+    rgba($color-primary-dark, 0.4)
+  );
+
+  &_image {
+    height: 25rem;
+  }
+
+  &_image_family {
+    width: 20%;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transition: all 0.5s ease-in-out;
+    transform: translate(-50%, -35%);
+
+    &:hover {
+      transform: translate(-50%, -35%) scale(1.2);
+    }
+  }
+
+  &_content {
+    width: 100%;
+
+    &_links {
+      width: 50%;
+      float: left;
+    }
+
+    @include respond(tab-land) {
+      &_links {
+        width: 100%;
+        float: none;
+        text-align: center;
+      }
+    }
+
+    &_copyright {
+      width: 50%;
+      float: left;
+    }
+  }
+
+  &_list {
+    list-style: none;
+    font-size: 2.5rem;
+
+    &_item {
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.5s;
+      margin-left: 4rem;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  @include respond(tab-land) {
+    &_list {
+      font-size: 2rem;
+    }
+  }
+
+  &_copyright {
+    &_name {
+      background-color: transparent;
+      border: none;
+      color: $text-color;
+      text-decoration: underline;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+
+    &_content {
+      display: inline-block;
+      padding-top: 1rem;
+      font-size: 2rem;
+      margin-left: 20rem;
+    }
+
+    @include respond(tab-land) {
+      &_content {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include respond(tab-land) {
+    &_copyright {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

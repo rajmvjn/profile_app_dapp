@@ -1,0 +1,153 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.header {
+  height: 45rem;
+  background-image: linear-gradient(
+      to bottom,
+      rgba($color-primary-light, 0.5),
+      rgba($color-primary-medium, 0.5)
+    ),
+    url("/assets/images/header_background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 1 2rem 1 rgba($color-black, 0.9);
+
+  &_content {
+    width: 70%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &_content_logo {
+    background-image: url("/assets/images/header_logo.jpg");
+    width: 10rem;
+    height: 10rem;
+    background-size: cover;
+    display: inline-block;
+    border-radius: 100%;
+    margin-top: 5rem;
+    transition: all 0.3s ease-in-out;
+    animation: fromTop 1s ease-in-out;
+    animation-fill-mode: backwards;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+    }
+
+    @include respond(tab-port) {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    @include respond(phone) {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
+  &_content_h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-top: 1.5rem;
+
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
+
+    &_span_1 {
+      display: inline-block;
+      animation: fromLeft 0.8s ease-in-out;
+    }
+
+    &_span_2 {
+      @include respond(phone) {
+        animation: none;
+      }
+
+      display: inline-block;
+      animation: fromBottom 0.8s ease-in-out;
+    }
+
+    &_span_3 {
+      display: inline-block;
+      animation: fromRight 0.8s ease-in-out;
+    }
+  }
+}
+
+@keyframes fromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@include respond(phone) {
+  .u_sep {
+    display: none;
+  }
+
+  .header_content_h1_span_2 {
+    display: block;
+  }
+}

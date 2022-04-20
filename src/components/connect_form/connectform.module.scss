@@ -1,0 +1,107 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+/* #############################connect################################# */
+
+.main_connect_content {
+  height: 80%;
+  width: 40%;
+  // border: 1px solid red;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 5rem;
+  // margin-top: 5rem;
+
+  @include respond(tab-land) {
+    width: 80%;
+  }
+
+  @include respond(tab-port) {
+    width: 90%;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
+  &_form {
+  }
+}
+
+.form_group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.form_input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  background-color: rgba($color-white, 0.5);
+  border-bottom: 2px solid transparent;
+  width: 55%;
+  display: block;
+  transition: all 0.5s;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+    border-bottom: 2px solid $color-primary-dark-3;
+  }
+
+  &:focus:invalid {
+    border-bottom: 2px solid red;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color-gray;
+  }
+
+  &:placeholder-shown + .form_label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+
+textarea.form_input {
+  width: 85%;
+}
+
+.form_label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-gray;
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  transition: all 0.5s;
+}
+
+.btn {
+  font-size: 1.5rem;
+  padding: 1rem 5rem;
+  border-radius: 2rem;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  background-color: rgba($color-white, 0.5);
+  border-bottom: 2px solid transparent;
+  display: block;
+  transition: all 0.5s;
+
+  &:hover {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.btn-blue {
+}

@@ -1,0 +1,287 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+  // border: 1px solid red;
+  text-align: center;
+  position: relative;
+
+  &_h2_title {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem 0;
+    background-image: linear-gradient(to right, $color-gray, $color-black);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1) skew(5deg);
+    }
+
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
+
+    @include respond(phone) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &_about {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
+    border-radius: 2px;
+    transform: skewX(-10deg);
+    & > * {
+      transform: skewX(10deg);
+    }
+
+    @include respond(tab-land) {
+      width: 75%;
+      padding-right: 1rem;
+      height: 30rem;
+    }
+
+    @include respond(tab-port) {
+      width: 80%;
+      padding-right: 1rem;
+      height: 35rem;
+    }
+
+    @include respond(phone) {
+      width: 85%;
+      padding-right: 1rem;
+      height: 40rem;
+    }
+
+    &_content {
+      position: relative;
+      padding: 0 2rem 2rem 2rem;
+      height: 16rem;
+
+      &_shape {
+        width: 10rem;
+        height: 10rem;
+        shape-outside: circle(
+          50% at 50% 50%
+        ); // circle the content outside, here the the text outside..
+        clip-path: circle(50% at 10% 50%);
+
+        // transform: translateX(-3rem);
+        position: relative;
+        float: left;
+        left: 3.3rem;
+      }
+
+      &_img {
+        height: 100%;
+        transform: translateX(-3rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all 0.5s;
+      }
+
+      &_text {
+        // display: inline-block;
+        text-align: left;
+        // padding-left: 5rem;
+      }
+
+      &_caption {
+        position: absolute;
+        top: 35%;
+        left: 0%;
+        transform: translate(-40%, 0);
+        color: $color-white;
+        text-align: center;
+        // backface-visibility: hidden;
+        transition: all 0.5s;
+        opacity: 0;
+        font-size: 1.6rem;
+      }
+
+      &:hover &_caption {
+        opacity: 1;
+        transform: translate(-30%, -30%);
+      }
+
+      &:hover &_img {
+        transform: translateX(-3rem) scale(1);
+        filter: blur(2px) brightness(80%);
+      }
+    }
+  }
+}
+
+.emoji {
+  font-size: 1.6rem;
+  color: black;
+}
+
+.main_about_content_text_pgh {
+  font-size: 1.6rem;
+}
+
+.main_about_content_text_head {
+  font-size: 1.6rem;
+}
+
+/* #############################connect################################# */
+
+.main_connect {
+  height: 55rem;
+  margin-bottom: 3rem;
+  background-image: linear-gradient(
+      to right bottom,
+      $color-primary-medium,
+      transparent
+    ),
+    url("/assets/images/contact_me.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* #############################dapps and cards########################################### */
+
+.main_dapps {
+  height: 59rem;
+
+  // border: 1px solid red;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+
+  @include respond(tab-port) {
+    height: 155rem;
+  }
+}
+
+.main_dapps_item {
+  width: 32.33%;
+  height: 100%;
+  float: left;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+  transition: all 0.5s;
+
+  &:not(:last-child) {
+    margin-right: 1.5%;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.card {
+  position: relative;
+
+  &__picture {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-dark, 1),
+        transparent
+      ),
+      url("/assets/images/bc1.jpg");
+    height: 23rem;
+    background-size: cover;
+    background-position: center;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  &__details {
+    position: relative;
+    padding: 3rem;
+    padding-bottom: 2rem;
+
+    ul {
+      list-style: none;
+      width: 80;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.6rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-gray-light;
+        }
+      }
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-black;
+    position: absolute;
+    top: 13rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading_span_1 {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.85),
+      rgba($color-primary-dark, 0.85)
+    );
+  }
+
+  &__link {
+    margin-top: 1.5rem;
+    &_button {
+      position: relative;
+      font-size: 1.6rem;
+      border: none;
+      background-color: $color-primary-dark-2;
+      cursor: pointer;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      transition: all 0.5s;
+      color: $color-white;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: $color-primary-dark-2;
+        transition: all 0.4s;
+      }
+
+      &:hover {
+        transform: translateY(-0.2rem);
+
+        &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+        }
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
