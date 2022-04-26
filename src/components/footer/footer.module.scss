@@ -80,7 +80,15 @@
       text-decoration: underline;
       font-size: 2rem;
       cursor: pointer;
-      transition: all 0.5s;
+      transition: all 0.5s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
     }
 
     &_content {

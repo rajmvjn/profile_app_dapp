@@ -1,8 +1,8 @@
 import styles from "./header.module.scss";
 
-const Header: React.FC = () => {
+const Header: React.FC<{ dappRef: any }> = (props) => {
   return (
-    <div className={styles.header}>
+    <div className={styles.header} ref={props.dappRef}>
       <div className={styles.header_content}>
         <div className={styles.header_content_logo}>&nbsp;</div>
         <h1 className={styles.header_content_h1}>

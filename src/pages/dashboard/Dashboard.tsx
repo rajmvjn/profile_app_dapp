@@ -17,7 +17,7 @@ const dappList: DAPP[] = [
   },
   {
     _id: "2",
-    name: "Make your crowd funding",
+    name: "Your crowd funding",
     description: [
       "Auction Contract",
       "3 day tours",
@@ -37,10 +37,10 @@ const dappList: DAPP[] = [
   },
 ];
 
-const Dashboard: React.FC = () => {
+const Dashboard: React.FC<{ dappRef?: any }> = (props) => {
   return (
     <main className={styles.main}>
-      <section className={styles.main_dapps}>
+      <section className={styles.main_dapps} ref={props.dappRef}>
         <h2 className={styles.main_h2_title}>explore decentralized apps</h2>
         <div className={styles.main_dapps_container}>
           <DappCard dapps={dappList} />
@@ -68,13 +68,13 @@ const Dashboard: React.FC = () => {
               I Rajesh, a son, a husband, a father, a friend and a developer
             </h3>
             <p className={styles.main_about_content_text_pgh}>
-              I love haning with family, i love sit back and just look at
-              things, i love travel i love reading sometimes, i loved most of
-              the rober langton series, now am getting a love for finance. I
-              developer by profession, mostly work on web development, and got
-              an ineterst for blockchain. looking further with deFi, dApps, NFT.
-              I guess thats it, not of a big deal, always wanted though, may be
-              next time too lazy this time, still trying to win over it though
+              I love hanging with family, I love sit back and just look at life,
+              I love travel, loves reading sometimes, loved most of the Robert
+              Langton series, now am getting a love for finance. I developer by
+              profession, mostly work on web development, and got an interest
+              around blockchain, looking further with deFi, dApps, NFT. I guess
+              thats it, not of a big deal, always wanted though, may be next
+              time too lazy this time, still trying to win over it though.
               <span className={styles.emoji}>☺</span>
             </p>
           </div>
