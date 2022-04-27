@@ -8,31 +8,24 @@ const dappList: DAPP[] = [
   {
     _id: "1",
     name: "The Auction Contract",
-    description: [
-      "Auction Contract",
-      "3 day tours",
-      "Up to 30 people",
-      "2 tour guides",
-    ],
+    description: ["Auction Contract", "Be the admin", "sell your products"],
   },
   {
     _id: "2",
     name: "Your crowd funding",
     description: [
-      "Auction Contract",
-      "3 day tours",
-      "Up to 30 people",
-      "2 tour guides",
+      "Get fund your project",
+      "Create any number of project",
+      "Get fund in phases",
     ],
   },
   {
     _id: "3",
     name: "Make your own ICO",
     description: [
-      "Auction Contract",
-      "3 day tours",
-      "Up to 30 people",
-      "2 tour guides",
+      "Your first coin offering",
+      "Test in testnet",
+      "Transfer to your wallet",
     ],
   },
 ];

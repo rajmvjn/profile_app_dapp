@@ -169,6 +169,8 @@
     @include respond(phone) {
       width: 4rem;
       height: 4rem;
+      right: 5rem;
+      top: 2rem;
     }
 
     .icon {

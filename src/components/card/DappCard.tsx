@@ -20,9 +20,9 @@ const DappCard: React.FC<{ dapps: DAPP[] }> = (props) => {
             </h4>
             <div className={styles.card__details}>
               <ul>
-                <li>3 day tours</li>
-                <li>Up to 30 people</li>
-                <li>2 tour guides</li>
+                {dapp.description.map((description, i) => (
+                  <li key={i}>{description}</li>
+                ))}
               </ul>
               <div className={styles.card__link}>
                 <button className={styles.card__link_button}>
