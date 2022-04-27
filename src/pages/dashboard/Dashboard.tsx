@@ -37,7 +37,9 @@ const dappList: DAPP[] = [
   },
 ];
 
-const Dashboard: React.FC<{ dappRef?: any }> = (props) => {
+const Dashboard: React.FC<{ dappRef?: any; connectRef: any; aboutRef: any }> = (
+  props
+) => {
   return (
     <main className={styles.main}>
       <section className={styles.main_dapps} ref={props.dappRef}>
@@ -46,11 +48,11 @@ const Dashboard: React.FC<{ dappRef?: any }> = (props) => {
           <DappCard dapps={dappList} />
         </div>
       </section>
-      <section className={styles.main_connect}>
+      <section className={styles.main_connect} ref={props.connectRef}>
         <h2 className={styles.main_h2_title}>connect</h2>
         <ConnectForm />
       </section>
-      <section className={styles.main_about}>
+      <section className={styles.main_about} ref={props.aboutRef}>
         <h2 className={styles.main_h2_title}>about me</h2>-
         <div className={styles.main_about_content}>
           <figure className={styles.main_about_content_shape}>

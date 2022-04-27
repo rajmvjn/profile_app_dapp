@@ -9,7 +9,9 @@ import { useRef } from "react";
 
 function App() {
   const dappRef = useRef();
-  const homeRef = useRef();
+  const homeRef = useRef<HTMLDivElement>(null);
+  const connectRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
 
   const httpReqStatus = useAppSelector(
     (state) => state.httpReqStatus.requstStatus
@@ -28,8 +30,18 @@ function App() {
   return (
     <div className="App">
       {httpReqStatus.isLoading ? <Spinner /> : null}
-      <Header dappRef={homeRef} />
-      <RoutesView dappRef={dappRef} />
+      <Header
+        homeRef={homeRef}
+        dappRef={dappRef}
+        connectRef={connectRef}
+        aboutRef={aboutRef}
+        onScroll={scrollToRefHandler}
+      />
+      <RoutesView
+        dappRef={dappRef}
+        connectRef={connectRef}
+        aboutRef={aboutRef}
+      />
       <Footer
         dappRef={dappRef}
         homeRef={homeRef}

@@ -8,6 +8,8 @@ const ConnectForm: React.FC = () => {
   const { postCommentAsync } = useActions();
   const reqStatus = useAppSelector((state) => state.httpReqStatus.requstStatus);
 
+  const contactFormRef = useRef<HTMLDivElement>(null);
+
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
@@ -27,7 +29,11 @@ const ConnectForm: React.FC = () => {
   };
 
   return (
-    <div className={styles.main_connect_content} onSubmit={submitHandler}>
+    <div
+      className={styles.main_connect_content}
+      onSubmit={submitHandler}
+      ref={contactFormRef}
+    >
       <form action="#" className={styles.mail_connect_content_form}>
         <div className={styles.form_group}>
           <input

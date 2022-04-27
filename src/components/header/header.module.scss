@@ -80,6 +80,172 @@
       animation: fromRight 0.8s ease-in-out;
     }
   }
+
+  &_nav {
+    position: absolute;
+    right: 0;
+    color: $color-black;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-right: 2.4rem;
+    margin-top: 1rem;
+    // animation: toLeft 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    @include respond(tab-port) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .nav {
+      list-style: none;
+
+      &_item {
+        display: inline-block;
+        margin-right: 1.5rem;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+          transform: scale(1.05);
+
+          &:not(:last-child) {
+            text-decoration: underline adjust-color($color: $color-primary-dark);
+            text-decoration-thickness: 2px;
+          }
+        }
+      }
+
+      @include respond(tab-port) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @include respond(tab-port) {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-dark-3
+      );
+      z-index: 100;
+      margin: 0;
+    }
+
+    &_show {
+      visibility: visible;
+      opacity: 1;
+      animation: fromRight 0.5s ease-in-out;
+    }
+  }
+
+  &_hamburger {
+    position: fixed;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    right: 4rem;
+    top: 1rem;
+    background-color: $color-white;
+    visibility: hidden;
+    z-index: 1001;
+    opacity: 0;
+    transition: all 1s;
+
+    @include respond(tab-port) {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @include respond(phone) {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    .icon {
+      position: relative;
+      margin-top: 2.5rem;
+      margin-left: 1rem;
+
+      @include respond(phone) {
+        margin-top: 2rem;
+      }
+
+      &,
+      &::before,
+      &::after {
+        width: 3rem;
+        height: 2px;
+        background-color: $color-black;
+        display: inline-block;
+
+        @include respond(phone) {
+          width: 2rem;
+          height: 1.7px;
+        }
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: all 0.2s;
+      }
+
+      &::before {
+        top: -0.8rem;
+
+        @include respond(phone) {
+          top: -0.6rem;
+        }
+      }
+      &::after {
+        top: 0.8rem;
+
+        @include respond(phone) {
+          top: 0.6rem;
+        }
+      }
+    }
+
+    .icon_close {
+      background-color: transparent;
+    }
+
+    .icon_close::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+
+    .icon_close::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+  }
+}
+
+.avatar {
+  width: 5rem;
+  background-image: url("/assets/images/me.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  // position: relative;
+  // // height: 1rem;
+  // &_img {
+  //   width: 100%;
+  //   height: 50%;
+  // }
 }
 
 @keyframes fromLeft {
@@ -138,6 +304,21 @@
   }
   100% {
     opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(5rem);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 0;
     transform: translateX(0);
   }
 }

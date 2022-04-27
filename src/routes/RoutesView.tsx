@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import routes from "./routes";
 
-const RoutesView: React.FC<{ dappRef: any }> = (props) => {
+const RoutesView: React.FC<{ dappRef: any; connectRef: any; aboutRef: any }> = (
+  props
+) => {
   return (
     <Routes>
       {routes.map((route, index) => {
