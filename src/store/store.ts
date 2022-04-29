@@ -3,11 +3,13 @@ import logger from "redux-logger";
 
 import commentSlice from "./comment/commentSlice";
 import httpReqStatusSlice from "./http/httpReqStatusSlice";
+import userSlice from "./user/userSlice";
 
 export const store = configureStore({
   reducer: {
     comment: commentSlice,
     httpReqStatus: httpReqStatusSlice,
+    user: userSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

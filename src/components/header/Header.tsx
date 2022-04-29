@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./header.module.scss";
 import pdf from "../../assets/docs/rajesh.pdf";
+import Login from "../popups/login/Login";
 
 const Header: React.FC<{
   homeRef: any;
@@ -10,6 +11,7 @@ const Header: React.FC<{
   onScroll: (ref: any) => void;
 }> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const profileHandler = () => {
     window.open(pdf);
@@ -19,8 +21,22 @@ const Header: React.FC<{
     setIsOpen((preState) => !preState);
   };
 
+  const loginHandler = () => {
+    setIsLoginOpen((preState) => !preState);
+  };
+
+  const closeHandler = () => {
+    setIsLoginOpen(false);
+  };
+
   return (
     <div className={styles.header} ref={props.homeRef}>
+      {isLoginOpen && (
+        <Login
+          onClose={closeHandler}
+          login_open={isLoginOpen ? "login_open" : ""}
+        />
+      )}
       <div className={styles.header_hamburger} onClick={toggleMenu}>
         <span
           className={
@@ -57,7 +73,9 @@ const Header: React.FC<{
           >
             About
           </li>
-          <li className={styles.nav_item}>Admin</li>
+          <li className={styles.nav_item} onClick={loginHandler}>
+            Admin
+          </li>
           <li className={styles.nav_item}>
             <div className={styles.avatar} onClick={profileHandler}>
               &nbsp;

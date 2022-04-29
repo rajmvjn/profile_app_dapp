@@ -1,0 +1,166 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark-3
+  );
+  z-index: 1002;
+  visibility: hidden;
+  opacity: 0;
+
+  &_open {
+    transition: all 0.5s;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &_container {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border-radius: 3px;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    @include respond(tab-port) {
+      width: 70%;
+    }
+
+    @include respond(phone) {
+      width: 80%;
+    }
+  }
+
+  &_content {
+    // background-color: red;
+    height: 80%;
+    width: 100%;
+    margin: 10% auto;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+      width: 70%;
+    }
+  }
+}
+
+.form_group {
+  position: relative;
+}
+
+.form_group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.form_group:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+}
+
+.form_input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  background-color: rgba($color-white, 0.5);
+  border-bottom: 2px solid transparent;
+  width: 100%;
+  display: block;
+  transition: all 0.5s;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+    border-bottom: 2px solid $color-primary-dark-3;
+  }
+
+  &:focus:invalid {
+    border-bottom: 2px solid red;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color-gray;
+  }
+
+  &:placeholder-shown + .form_label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+
+textarea.form_input {
+  width: 85%;
+}
+
+.form_label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-gray;
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  transition: all 0.5s;
+}
+
+.btn {
+  font-size: 1.5rem;
+  padding: 1rem 5rem;
+  border-radius: 2rem;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  background-color: rgba($color-white, 0.5);
+  border-bottom: 2px solid transparent;
+  display: block;
+  transition: all 0.5s;
+
+  &:hover {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.connect_success_msg {
+  display: inline-block;
+
+  font-size: 1.5rem;
+  color: $color-black;
+  margin-top: 1rem;
+}
+
+.login_close {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  font-size: 3rem;
+  color: $color-black;
+  cursor: pointer;
+}

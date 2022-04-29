@@ -60,11 +60,12 @@ const Dashboard: React.FC<{ dappRef?: any; connectRef: any; aboutRef: any }> = (
           </figure>
           <div className={styles.main_about_content_text}>
             <h3 className={styles.main_about_content_text_head}>
-              I Rajesh, a son, a husband, a father, a friend and a developer
+              I Rajesh, a son, a brother, a husband, a father, a friend and a
+              developer
             </h3>
             <p className={styles.main_about_content_text_pgh}>
               I love hanging with family, I love sit back and just look at life,
-              I love travel, loves reading sometimes, loved most of the Robert
+              I love travel, love reading sometimes, loved most of the Robert
               Langton series, now am getting a love for finance. I developer by
               profession, mostly work on web development, and got an interest
               around blockchain, looking further with deFi, dApps, NFT. I guess

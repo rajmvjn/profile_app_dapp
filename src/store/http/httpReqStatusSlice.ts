@@ -3,9 +3,9 @@ import { RequestStatus } from "../../models";
 
 const reqStatus: RequestStatus = {
   isLoading: false,
-  error: null,
   statusCode: null,
   message: "",
+  errored: false,
 };
 
 const initialState = {
@@ -19,9 +19,9 @@ const httpReqStatusSlice = createSlice({
     updateStatus(state, action: PayloadAction<any>) {
       state.requstStatus = {
         isLoading: action.payload.isLoading,
-        error: action.payload.error,
         statusCode: action.payload.statusCode,
         message: action.payload.message,
+        errored: action.payload.errored,
       };
     },
   },
