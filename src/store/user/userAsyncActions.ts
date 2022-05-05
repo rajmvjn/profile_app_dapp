@@ -8,6 +8,7 @@ export const userAuthAsync = (email: string, password: string) => {
   return async (dispatch: Dispatch) => {
     let response;
     try {
+      dispatch(updateUser({}));
       dispatch(updateStatus({ isLoading: true }));
       response = await axiosClient.post(API_ENDPOINTS.USER_AUTH, {
         email,
@@ -17,21 +18,19 @@ export const userAuthAsync = (email: string, password: string) => {
       dispatch(
         updateStatus({
           isLoading: false,
-          message: response.data.message,
+          message: response?.data?.message,
           errored: false,
-          statusCode: response.status,
+          statusCode: response?.status,
         })
       );
       dispatch(updateUser(response.data.user));
+      window.sessionStorage.setItem("token", response.data.token);
     } catch (error: any) {
-      // update user data to null and set error message
-
-      dispatch(updateUser({}));
       dispatch(
         updateStatus({
           isLoading: false,
-          statusCode: error.response.status,
-          message: error.response.data.message,
+          statusCode: error.response?.status,
+          message: error.response?.data?.message,
           errored: true,
         })
       );

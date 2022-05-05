@@ -5,6 +5,8 @@ import API_ENDPOINTS from "../../constants/apiEndPoints";
 const Footer: React.FC<{
   dappRef: any;
   homeRef: any;
+  connectRef: any;
+  aboutRef: any;
   onScroll: (ref: any) => void;
 }> = (props) => {
   const profileNavHandler = () => {
@@ -25,14 +27,24 @@ const Footer: React.FC<{
             >
               dApps
             </li>
-            <li className={styles.footer_list_item}>Connect</li>
+            <li
+              className={styles.footer_list_item}
+              onClick={() => props.onScroll(props.connectRef)}
+            >
+              Connect
+            </li>
             <li
               className={styles.footer_list_item}
               onClick={() => props.onScroll(props.homeRef)}
             >
               Home
             </li>
-            <li className={styles.footer_list_item}>About</li>
+            <li
+              className={styles.footer_list_item}
+              onClick={() => props.onScroll(props.aboutRef)}
+            >
+              About
+            </li>
           </ul>
         </div>
         <div className={styles.footer_copyright}>

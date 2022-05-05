@@ -26,6 +26,18 @@
     &:hover {
       transform: translate(-50%, -35%) scale(1.2);
     }
+
+    @include respond(tab-port) {
+      width: 25%;
+    }
+
+    @include respond(phone) {
+      width: 30%;
+    }
+
+    @include respond(phone-small) {
+      width: 35%;
+    }
   }
 
   &_content {
@@ -62,6 +74,10 @@
 
       &:hover {
         transform: scale(1.2);
+      }
+
+      @include respond(tab-port) {
+        margin-left: 2rem;
       }
     }
   }
