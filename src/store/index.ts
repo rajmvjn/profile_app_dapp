@@ -1,5 +1,3 @@
-import { userInfo } from "os";
-
 // store config export
 export * from "./store";
 

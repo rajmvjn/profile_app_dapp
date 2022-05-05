@@ -61,18 +61,32 @@
       width: 85%;
       padding-right: 1rem;
       height: 40rem;
+      transform: skewX(-5deg);
+      & > * {
+        transform: skewX(5deg);
+      }
     }
 
     @include respond(phone-small) {
       width: 85%;
       padding-right: 1rem;
       height: 45rem;
+
+      transform: skewX(-4deg);
+      & > * {
+        transform: skewX(4deg);
+      }
     }
 
     @include respond(phone-too-small) {
       width: 85%;
       padding-right: 1rem;
-      height: 50rem;
+      height: 65rem;
+
+      transform: skewX(-2deg);
+      & > * {
+        transform: skewX(2deg);
+      }
     }
 
     &_content {

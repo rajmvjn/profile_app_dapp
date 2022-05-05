@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useActions } from "../../../hooks/useActions";
 import { useAppSelector } from "../../../store";
 
@@ -7,13 +8,21 @@ import styles from "./login.module.scss";
 const Login: React.FC<{ onClose: () => void; login_open: string }> = (
   props
 ) => {
+  const navigate = useNavigate();
   const { userAuthAsync } = useActions();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const { requstStatus } = useAppSelector((state) => state.httpReqStatus);
+  const { user } = useAppSelector((state) => state.user);
 
-  const submitHandler = (event: React.FormEvent) => {
+  useEffect(() => {
+    if (user._id) {
+      navigate("/admindashboard");
+    }
+  }, [user, navigate]);
+
+  const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     const email = emailRef.current!.value;
     const password = passwordRef.current!.value;

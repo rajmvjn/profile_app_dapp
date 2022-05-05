@@ -28,19 +28,19 @@ ORDER: Base + typography > general layout + grid > page layout > components
   @if $breakpoint == phone-too-small {
     @media only screen and (max-width: 29.125em) {
       @content;
-    } //600px
+    } //466px
   }
 
   @if $breakpoint == phone-small {
     @media only screen and (max-width: 32.5em) {
       @content;
-    } //600px
+    } //520px
   }
 
   @if $breakpoint == phone {
     @media only screen and (max-width: 37.5em) {
       @content;
-    } //600px
+    } //600
   }
   @if $breakpoint == tab-port {
     @media only screen and (max-width: 56.25em) {
