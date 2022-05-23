@@ -2,9 +2,15 @@ import { useRef } from "react";
 
 import styles from "./dashboard.module.scss";
 import myPic from "../../assets/images/me.jpg";
+import TwitterImg from "../../assets/images/svgs/twitter.svg";
+import LinkedinImg from "../../assets/images/svgs/linkedin.svg";
+import GithubImg from "../../assets/images/svgs/github.svg";
+import userImg from "../../assets/images/svgs/user.svg";
+import Profile from "../../assets/docs/rajesh.pdf";
 import DappCard from "../../components/card/DappCard";
 import ConnectForm from "../../components/connect_form/ConnectForm";
 import DAPP from "../../models/dapp";
+import API_ENDPOINTS from "../../constants/apiEndPoints";
 
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -51,6 +57,21 @@ const Dashboard: React.FC<{}> = () => {
     }
   };
 
+  const openProfile = () => {
+    window.open(Profile);
+  };
+
+  const gitNavHandler = () => {
+    window.open(API_ENDPOINTS.GITHUB_PROFILE, "_blank");
+  };
+
+  const linkedInNavHandler = () => {
+    window.open(API_ENDPOINTS.LINKEDIN_PROFILE, "_blank");
+  };
+
+  const twitterNavHandler = () => {
+    window.open(API_ENDPOINTS.TWITTER_PROFILE, "_blank");
+  };
   return (
     <>
       <Header
@@ -70,6 +91,30 @@ const Dashboard: React.FC<{}> = () => {
         <section className={styles.main_connect} ref={connectRef}>
           <h2 className={styles.main_h2_title}>connect</h2>
           <ConnectForm />
+          <div className={styles.social_connect}>
+            <ul className={styles.social_connect_list}>
+              <li className={styles.social_connect_list_item}>
+                <img src={GithubImg} alt="github" onClick={gitNavHandler} />
+              </li>
+              <li className={styles.social_connect_list_item}>
+                <img
+                  src={LinkedinImg}
+                  alt="linkedIn"
+                  onClick={linkedInNavHandler}
+                />
+              </li>
+              <li className={styles.social_connect_list_item}>
+                <img src={userImg} alt="profile" onClick={openProfile} />
+              </li>
+              <li className={styles.social_connect_list_item}>
+                <img
+                  src={TwitterImg}
+                  alt="twitter"
+                  onClick={twitterNavHandler}
+                />
+              </li>
+            </ul>
+          </div>
         </section>
         <section className={styles.main_about} ref={aboutRef}>
           <h2 className={styles.main_h2_title}>about me</h2>-

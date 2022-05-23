@@ -163,7 +163,7 @@
 /* #############################connect################################# */
 
 .main_connect {
-  height: 55rem;
+  height: 62rem;
   margin-bottom: 3rem;
   background-image: linear-gradient(
       to right bottom,
@@ -307,6 +307,33 @@
 
       &:active {
         transform: translateY(0);
+      }
+    }
+  }
+}
+
+.social_connect {
+  margin: 3rem auto;
+  height: 5rem;
+  width: 20rem;
+  &_list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    &_item {
+      display: flex;
+      cursor: pointer;
+      img {
+        width: 2rem;
+        height: 2rem;
+        transition: all 0.5s;
+        &:hover {
+          transform: scale(1.2);
+          box-shadow: 0 0.5rem 1rem rgba($color-white, 0.3);
+        }
       }
     }
   }
