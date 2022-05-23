@@ -86,7 +86,7 @@
     right: 0;
     color: $color-black;
     font-size: 3rem;
-    font-weight: 400;
+    font-weight: 300;
     margin-right: 2.4rem;
     margin-top: 1rem;
     // animation: toLeft 0.2s ease-in-out;
@@ -103,7 +103,11 @@
     .nav {
       list-style: none;
 
+      display: flex;
+      align-items: center;
+
       &_item {
+        position: relative;
         display: inline-block;
         margin-right: 1.5rem;
         cursor: pointer;
@@ -116,6 +120,22 @@
             text-decoration: underline adjust-color($color: $color-primary-dark);
             text-decoration-thickness: 2px;
           }
+        }
+
+        &_dapp {
+          @include headerIcon("/assets/images/svgs/shuffle.svg");
+        }
+
+        &_connect {
+          @include headerIcon("/assets/images/svgs/phone.svg");
+        }
+
+        &_about {
+          @include headerIcon("/assets/images/svgs/user-solid-circle.svg");
+        }
+
+        &_admin {
+          @include headerIcon("/assets/images/svgs/key.svg");
         }
       }
 

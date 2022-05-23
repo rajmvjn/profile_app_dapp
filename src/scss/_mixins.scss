@@ -58,3 +58,29 @@ ORDER: Base + typography > general layout + grid > page layout > components
     } //1800
   }
 }
+
+//header icon manager
+
+@mixin headerIcon($icon) {
+  @include respond(tab-port) {
+    display: flex;
+    align-items: center;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      -webkit-mask-image: url($icon);
+      -webkit-mask-size: cover;
+      mask-image: url($icon);
+      mask-size: cover;
+      // font-size: 5rem;
+      background-color: rgba($color-primary-dark-3, 0.5);
+      left: -2.5rem;
+
+      @include respond(tab-port) {
+        left: -3rem;
+      }
+    }
+  }
+}

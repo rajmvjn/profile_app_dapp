@@ -1,1 +1,47 @@
 @import "../../scss/variables";
+
+.cotainer {
+  background-image: linear-gradient(
+    to bottom right,
+    transparent,
+    $color-primary-dark-2
+  );
+  min-height: 100vh;
+  position: relative;
+
+  .ad {
+    width: 80%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%, 10px);
+
+    &_tabs {
+      height: 5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      font-size: 2rem;
+      text-transform: uppercase;
+
+      &_item {
+        border-bottom: 1px solid $color-gray-light;
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: stretch;
+        padding: 0 10rem;
+        cursor: pointer;
+
+        &_active {
+          border-bottom: 2.5px solid $color-primary-dark;
+        }
+      }
+    }
+
+    &_content {
+      height: 40rem;
+    }
+  }
+}

@@ -56,24 +56,27 @@ const Header: React.FC<{
       >
         <ul className={styles.nav}>
           <li
-            className={styles.nav_item}
+            className={styles.nav_item + " " + styles.nav_item_dapp}
             onClick={() => props.onScroll(props.dappRef)}
           >
             dApps
           </li>
           <li
-            className={styles.nav_item}
+            className={styles.nav_item + " " + styles.nav_item_connect}
             onClick={() => props.onScroll(props.connectRef)}
           >
             Connect
           </li>
           <li
-            className={styles.nav_item}
+            className={styles.nav_item + " " + styles.nav_item_about}
             onClick={() => props.onScroll(props.aboutRef)}
           >
             About
           </li>
-          <li className={styles.nav_item} onClick={loginHandler}>
+          <li
+            className={styles.nav_item + " " + styles.nav_item_admin}
+            onClick={loginHandler}
+          >
             Admin
           </li>
           <li className={styles.nav_item}>
