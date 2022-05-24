@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useActions } from "../../../hooks/useActions";
 import { useAppSelector } from "../../../store";
+import { getJwt } from "../../../utils/getJwt";
 
 import styles from "./login.module.scss";
 
@@ -14,13 +15,14 @@ const Login: React.FC<{ onClose: () => void; login_open: string }> = (
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const { requstStatus } = useAppSelector((state) => state.httpReqStatus);
-  const { user } = useAppSelector((state) => state.user);
+
+  const jwtToken = getJwt();
 
   useEffect(() => {
-    if (user._id) {
+    if (jwtToken) {
       navigate("/admindashboard");
     }
-  }, [user, navigate]);
+  }, [navigate, jwtToken]);
 
   const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();

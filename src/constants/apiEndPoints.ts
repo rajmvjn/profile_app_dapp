@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const API_ENDPOINTS = {
-  POST_COMMENT: "/user/comment",
+  COMMENTS_API: "/user/comment",
   USER_AUTH: "/user/login",
   GITHUB_PROFILE: "https://github.com/rajmvjn",
   LINKEDIN_PROFILE: "https://www.linkedin.com/in/rajesh-vijayan-294841190/",

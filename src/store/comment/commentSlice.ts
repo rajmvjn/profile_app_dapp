@@ -14,9 +14,17 @@ const commentSlice = createSlice({
     postComment(state, action: PayloadAction<Comment>) {
       state.comments.push(action.payload);
     },
+    deleteComment(state, action: any) {
+      state.comments = state.comments.filter(
+        (comment) => comment._id !== action.payload
+      );
+    },
+    getComments(state, action: PayloadAction<Comment[]>) {
+      state.comments = action.payload;
+    },
   },
 });
 
-export const { postComment } = commentSlice.actions;
+export const { postComment, getComments, deleteComment } = commentSlice.actions;
 
 export default commentSlice.reducer;

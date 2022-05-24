@@ -1,47 +1,66 @@
 @import "../../scss/variables";
 
-.cotainer {
+.admin_header {
   background-image: linear-gradient(
-    to bottom right,
-    transparent,
-    $color-primary-dark-2
+    to right,
+    rgba($color-primary-light, 0.5),
+    rgba($color-primary-dark, 0.5)
   );
-  min-height: 100vh;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  padding: 0 2rem;
 
-  .ad {
-    width: 80%;
-    background-color: #fff;
-    position: absolute;
-    left: 50%;
-    top: 10px;
-    transform: translate(-50%, 10px);
+  &_home {
+    justify-self: center;
+    font-size: 2rem;
+    cursor: pointer;
+    text-decoration: underline;
+    // flex: 1;
+  }
 
-    &_tabs {
-      height: 5rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      font-size: 2rem;
+  &_content {
+    align-self: center;
+    justify-self: start;
+  }
+}
+
+.admin_content {
+  height: 6rem;
+  background-color: $color-white;
+
+  &_tab {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &_item {
+      cursor: pointer;
+      font-size: 1.5rem;
       text-transform: uppercase;
+      border-bottom: 3px solid $color-gray-light;
+    }
 
-      &_item {
-        border-bottom: 1px solid $color-gray-light;
-        align-self: stretch;
-        display: flex;
-        align-items: center;
-        justify-content: stretch;
-        padding: 0 10rem;
-        cursor: pointer;
-
-        &_active {
-          border-bottom: 2.5px solid $color-primary-dark;
-        }
-      }
+    &_active {
+      border-bottom: 4px solid $color-primary-dark-3;
     }
 
     &_content {
-      height: 40rem;
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.5),
+        rgba($color-primary-dark, 0.5)
+      );
+      min-height: 70vh;
+      justify-content: space-evenly;
     }
   }
+}
+
+.logout {
+  font-size: 2rem;
+  text-decoration: underline;
+  cursor: pointer;
 }
