@@ -1,0 +1,57 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.container {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.5),
+    rgba($color-primary-dark-3, 0.5)
+  );
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  font-size: 3rem;
+  color: $color-primary-dark-3;
+  @include respond(tab-port) {
+    font-size: 2rem;
+  }
+
+  @include respond(phone) {
+    font-size: 1.5rem;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  background-color: $color-primary-dark-3;
+  color: $color-white;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: translateY(-2px);
+  }
+
+  @include respond(tab-port) {
+    padding: 0.5rem 1rem;
+  }
+
+  @include respond(phone) {
+    padding: 0.25rem 0.5rem;
+  }
+}

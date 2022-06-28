@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: start;
   background-color: $color-white;
-  border-bottom: 1px solid $color-gray-light;
+  border-bottom: 1px solid $color-gray-light-2;
   padding: 0.5rem;
 
   @include respond(tab-port) {

@@ -143,13 +143,13 @@ const Dashboard: React.FC<{}> = () => {
                 NFT. I guess thats it, not of a big deal, always wanted though,
                 may be next time too lazy this time, still trying to win over it
                 though. */}
-                I am a computer science graduate, with overall experience of 12
-                years in the field of computer science. I mostly work on
-                javascript related technologies, and got experience in React,
-                Angular, HTML, CSS, Nodejs, and MongoDB. I have worked on hybrid
-                mobile applications, with Ionic. In the dApp space I have worked
-                on Ethereum and Corda. <br /> Outside work, I love hangs out
-                with family and friends.
+                I am a computer science graduate with experience around 12 years
+                in software development. I mostly work on javascript and related
+                technologies and got experience in React, Angular, HTML, CSS,
+                Nodejs and MongoDB. I got experince in developing hybrid mobile
+                applications with Ionic framework. In the dApp space I have
+                worked on Ethereum and Corda. <br /> Outside work, I love hangs
+                out with family and friends.
                 <span className={styles.emoji}>☺</span>
               </p>
             </div>

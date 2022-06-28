@@ -1,0 +1,41 @@
+@import "../../scss/variables";
+
+.blog {
+  height: 50rem;
+  // border: 1px solid red;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.5),
+    rgba($color-primary-dark-3, 0.5)
+  );
+}
+
+.header {
+  border-bottom: 1px solid $color-gray-light;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.create_btn {
+  background-color: $color-primary-dark-3;
+  color: $color-white;
+  border: none;
+  border-radius: 5px;
+  padding: 0 2rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: translateY(-2px);
+  }
+
+  .create_icon {
+    font-size: 2rem;
+    padding-right: 5px;
+  }
+}

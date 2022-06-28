@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 import pdf from "../../assets/docs/rajesh.pdf";
 import Login from "../popups/login/Login";
@@ -10,6 +11,7 @@ const Header: React.FC<{
   aboutRef: any;
   onScroll: (ref: any) => void;
 }> = (props) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
@@ -27,6 +29,10 @@ const Header: React.FC<{
 
   const closeHandler = () => {
     setIsLoginOpen(false);
+  };
+
+  const blogNavHandler = () => {
+    navigate("/blogs");
   };
 
   return (
@@ -55,6 +61,12 @@ const Header: React.FC<{
         }
       >
         <ul className={styles.nav}>
+          <li
+            className={styles.nav_item + " " + styles.nav_item_blog}
+            onClick={blogNavHandler}
+          >
+            Blogs
+          </li>
           <li
             className={styles.nav_item + " " + styles.nav_item_dapp}
             onClick={() => props.onScroll(props.dappRef)}
