@@ -7,6 +7,7 @@
     rgba($color-primary-light, 0.5),
     rgba($color-primary-dark-3, 0.5)
   );
+  min-height: 100vh;
 }
 
 .header {
@@ -54,4 +55,105 @@ button {
   @include respond(phone) {
     padding: 0.25rem 0.5rem;
   }
+}
+
+.add_blog_control {
+  text-align: center;
+}
+
+.types {
+  // display: inline-block;
+  margin-right: 2rem;
+  font-size: 1.6rem;
+}
+
+.select {
+  width: 15em;
+  height: 2em;
+  overflow: hidden;
+  border: none;
+  appearance: none;
+  outline: 0;
+  background: $color-primary-light;
+  cursor: pointer;
+  border-radius: 3px;
+  padding-left: 0.5rem;
+
+  @include respond(tab-port) {
+    width: 10em;
+  }
+}
+
+.form_label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-gray;
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  transition: all 0.5s;
+}
+
+.blog_contents {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid transparent;
+  // display: block;
+  transition: all 0.5s;
+  width: 60%;
+
+  &:focus {
+    outline: none;
+  }
+
+  @include respond(tab-land) {
+    width: 80%;
+  }
+}
+
+.add_content {
+  margin: 1rem auto;
+  padding: 1rem 5rem;
+  margin-bottom: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0.5rem 3rem;
+  }
+}
+
+.submit_blog_container {
+  padding: 2rem 0;
+}
+
+.submit_blog {
+  margin: 0 auto;
+  padding: 1.5rem 5rem;
+
+  @include respond(tab-port) {
+    padding: 1rem 3rem;
+  }
+}
+
+.blog_field_content {
+  position: relative;
+  min-height: 5rem;
+  background-color: $color-white;
+  width: 80%;
+  margin: 0.2rem auto;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.remove_btn {
+  position: absolute;
+  right: 1rem;
+  top: 2px;
+  font-size: 2rem;
+  cursor: pointer;
 }
