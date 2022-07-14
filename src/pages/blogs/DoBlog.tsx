@@ -42,18 +42,18 @@ const DoBlog = () => {
     switch (fieldType) {
       case "header":
         currentFieldValue = headerRef.current!.value;
+        headerRef.current!.value = "";
         break;
       case "sub_header":
         currentFieldValue = subHeaderRef.current!.value;
+        subHeaderRef.current!.value = "";
         break;
       case "text_content":
         currentFieldValue = contentRef.current!.value;
-        console.log(currentFieldValue);
+        contentRef.current!.value = "";
         break;
     }
     setFieldValues((oldValues: string[]) => [...oldValues, currentFieldValue]);
-    console.log(fieldValues);
-    console.log(blogList);
   };
 
   return (

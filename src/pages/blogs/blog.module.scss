@@ -15,6 +15,7 @@
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .create_btn {
@@ -41,7 +42,7 @@
 }
 
 .home {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 300;
   color: $color-primary-dark-3;
   cursor: pointer;
