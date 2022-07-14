@@ -157,3 +157,25 @@ button {
   font-size: 2rem;
   cursor: pointer;
 }
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .back {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: $color-primary-dark-3;
+    cursor: pointer;
+    padding-left: 1.5rem;
+  }
+
+  .home {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: $color-primary-dark-3;
+    cursor: pointer;
+    padding-right: 1.5rem;
+  }
+}

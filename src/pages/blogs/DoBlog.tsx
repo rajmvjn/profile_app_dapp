@@ -1,7 +1,9 @@
 import styles from "./doBlog.module.scss";
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const DoBlog = () => {
+  const navigate = useNavigate();
   const headerRef = useRef<HTMLTextAreaElement>(null);
   const subHeaderRef = useRef<HTMLTextAreaElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
@@ -10,6 +12,14 @@ const DoBlog = () => {
 
   const [fieldType, setFieldType] = useState("header");
   const [fieldValues, setFieldValues] = useState<string[]>([]);
+
+  const navigateHome = () => {
+    navigate("/");
+  };
+
+  const navigateListing = () => {
+    navigate("/blogs");
+  };
 
   const fieldChangeHandler = () => {
     setFieldType(selectedFieldType.current!.value);
@@ -48,9 +58,19 @@ const DoBlog = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>
-        Create Your Blog, Use the below controls.
-      </h1>
+      <div className={styles.header_container}>
+        <div className={styles.back} onClick={navigateListing}>
+          {" "}
+          Back{" "}
+        </div>
+        <h1 className={styles.header}>
+          Create Your Blog, Use the below controls.
+        </h1>
+        <div className={styles.home} onClick={navigateHome}>
+          Home
+        </div>
+      </div>
+
       {/* <div className={styles.controls}>
         <button className={styles.primary_header}>Header</button>
         <button className={styles.sub_header}>Sub Header</button>

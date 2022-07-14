@@ -3,13 +3,21 @@ import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
   const naviagte = useNavigate();
+
   const blogCreateHandler = () => {
     naviagte("/doblog");
+  };
+
+  const navigateHome = () => {
+    naviagte("/");
   };
 
   return (
     <div className={styles.blog}>
       <div className={styles.header}>
+        <div className={styles.home} onClick={navigateHome}>
+          Home
+        </div>
         <h1 className={styles.header_text}>Your Blogs</h1>
         <button className={styles.create_btn} onClick={blogCreateHandler}>
           {" "}
