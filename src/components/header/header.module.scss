@@ -122,6 +122,10 @@
           }
         }
 
+        &_blog {
+          @include headerIcon("/assets/images/svgs/compose.svg");
+        }
+
         &_dapp {
           @include headerIcon("/assets/images/svgs/shuffle.svg");
         }
