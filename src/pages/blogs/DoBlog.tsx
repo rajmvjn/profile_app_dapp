@@ -1,6 +1,9 @@
 import styles from "./doBlog.module.scss";
 import React, { useRef, useState } from "react";
+import { useAppSelector } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { useActions } from "../../hooks/useActions";
+import { Blog } from "../../models/blog";
 
 const DoBlog = () => {
   const navigate = useNavigate();
@@ -8,10 +11,13 @@ const DoBlog = () => {
   const subHeaderRef = useRef<HTMLTextAreaElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
   const selectedFieldType = useRef<HTMLSelectElement>(null);
-  const [blogList, setBlogList] = useState<string[]>([]);
+  const [fieldTypes, setFieldTypes] = useState<string[]>([]);
 
   const [fieldType, setFieldType] = useState("header");
   const [fieldValues, setFieldValues] = useState<string[]>([]);
+
+  const { user } = useAppSelector((state) => state.user);
+  const { postBlogAsync } = useActions();
 
   const navigateHome = () => {
     navigate("/");
@@ -25,19 +31,31 @@ const DoBlog = () => {
     setFieldType(selectedFieldType.current!.value);
   };
 
+  const blogCreateHandler = () => {
+    const blog: Blog = {
+      userId: user._id,
+      blogs: {
+        fieldTypes,
+        fieldValues,
+      },
+    };
+    const letsSee = postBlogAsync(blog);
+    console.log(letsSee);
+  };
+
   const removeFieldHandler = (index: number) => {
     const newFieldValues = [...fieldValues];
     newFieldValues.splice(index, 1);
     setFieldValues(newFieldValues);
 
-    const newBlogList = [...blogList];
-    newBlogList.splice(index, 1);
-    setBlogList(newBlogList);
+    const newfieldTypes = [...fieldTypes];
+    newfieldTypes.splice(index, 1);
+    setFieldTypes(newfieldTypes);
   };
 
   const formSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    setBlogList((oldList: string[]) => [...oldList, fieldType]);
+    setFieldTypes((oldList: string[]) => [...oldList, fieldType]);
     let currentFieldValue: string = "";
     switch (fieldType) {
       case "header":
@@ -153,7 +171,7 @@ const DoBlog = () => {
         </form>
       </div>
       <div>
-        {blogList.map((blogItem, index) => {
+        {fieldTypes.map((blogItem, index) => {
           return (
             <div key={index} className={styles.blog_field_content}>
               {fieldValues[index]}{" "}
@@ -168,8 +186,10 @@ const DoBlog = () => {
         })}
       </div>
       <div className={styles.submit_blog_container}>
-        {blogList.length > 0 && (
-          <button className={styles.submit_blog}>Create Blog</button>
+        {fieldTypes.length > 0 && (
+          <button className={styles.submit_blog} onClick={blogCreateHandler}>
+            Create Blog
+          </button>
         )}
       </div>
     </div>

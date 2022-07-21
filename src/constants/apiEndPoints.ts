@@ -10,6 +10,7 @@ const API_ENDPOINTS = {
   LINKEDIN_PROFILE: "https://www.linkedin.com/in/rajesh-vijayan-294841190/",
   TWITTER_PROFILE: "https://twitter.com/rajmvjn",
   API_BASE_URL: base_url,
+  BLOG_API: "/api/v1/blogs",
 };
 
 export default API_ENDPOINTS;
