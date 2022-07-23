@@ -1,7 +1,7 @@
 @import "../../scss/variables";
 
 .blog {
-  height: 50rem;
+  min-height: 100vh;
   // border: 1px solid red;
   background-image: linear-gradient(
     to right bottom,
@@ -47,4 +47,38 @@
   color: $color-primary-dark-3;
   cursor: pointer;
   padding-right: 1.5rem;
+}
+
+li.blogs_list {
+  list-style: none;
+  height: 2rem;
+  background-color: $color-primary-light;
+  width: 80%;
+  margin: 2px auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  padding: 2rem;
+  font-size: 1.6rem;
+}
+
+.head_list {
+  border-bottom: 1px solid $color-primary-dark-3;
+  margin: 5px auto;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.head_list_blog {
+  flex-basis: 70%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.head_list_user {
+  flex-basis: 25%;
+  flex-grow: 0;
+  flex-shrink: 0;
 }

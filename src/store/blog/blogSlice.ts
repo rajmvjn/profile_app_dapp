@@ -15,9 +15,12 @@ const blogsSlice = createSlice({
     postBlog(state, action: PayloadAction<Blogs>) {
       state.blogs.push(action.payload);
     },
+    getBlogs(state, action: PayloadAction<Blogs[]>) {
+      state.blogs = action.payload;
+    },
   },
 });
 
-export const { postBlog } = blogsSlice.actions;
+export const { postBlog, getBlogs } = blogsSlice.actions;
 
 export default blogsSlice.reducer;
