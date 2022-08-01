@@ -1,0 +1,102 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.blog_view {
+  position: fixed;
+  // border: 1px solid red;
+  // color: red;
+  min-height: 98vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-dark, 1),
+    rgba($color-primary-dark-2, 1)
+  );
+  width: 99%;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+  padding-bottom: 5px;
+  overflow: scroll;
+}
+
+.close_btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: $color-white;
+
+  @include respond(phone) {
+    top: 0.4rem;
+    right: 0.8rem;
+    font-size: 1.6rem;
+  }
+}
+
+.blog_view_content {
+  margin: 5rem;
+
+  @include respond(tab-port) {
+    margin: 4rem;
+  }
+  @include respond(phone) {
+    margin: 3rem;
+  }
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+  // background-color: aliceblue;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.5),
+    rgba($color-primary-dark, 0.5)
+  );
+  padding: 5rem;
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    @include respond(tab-port) {
+      font-size: 2.4rem;
+      margin-bottom: 1.8rem;
+    }
+    @include respond(phone) {
+      font-size: 2rem;
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    @include respond(phone) {
+      font-size: 1.6rem;
+      margin-bottom: 0.7rem;
+    }
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  p {
+    font-size: 1.6rem;
+    @include respond(tab-port) {
+      font-size: 1.4rem;
+    }
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

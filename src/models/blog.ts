@@ -10,6 +10,7 @@ export interface Blog {
     fieldValues: string[];
   };
   comments?: Comment[];
+  _id?: string;
 }
 
 interface Blogs {

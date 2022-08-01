@@ -16,6 +16,8 @@ const blogsSlice = createSlice({
       state.blogs.push(action.payload);
     },
     getBlogs(state, action: PayloadAction<Blogs[]>) {
+      // console.log("action", action.payload);
+      // console.log(action.payload);
       state.blogs = action.payload;
     },
   },
