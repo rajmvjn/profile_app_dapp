@@ -21,14 +21,13 @@
 
 .close_btn {
   position: absolute;
-  top: 1rem;
+  top: 3px;
   right: 1rem;
   font-size: 2rem;
   cursor: pointer;
   color: $color-white;
 
   @include respond(phone) {
-    top: 0.4rem;
     right: 0.8rem;
     font-size: 1.6rem;
   }
@@ -36,12 +35,18 @@
 
 .blog_view_content {
   margin: 5rem;
+  padding: 5rem;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+  border-radius: 5px;
 
   @include respond(tab-port) {
-    margin: 4rem;
+    margin: 3rem;
+    padding: 3rem;
   }
   @include respond(phone) {
-    margin: 3rem;
+    margin: 2rem;
+    padding: 2rem;
+    margin-top: 3rem;
   }
 
   &::first-letter {
@@ -51,9 +56,9 @@
   background-image: linear-gradient(
     to right bottom,
     rgba($color-primary-light, 0.5),
-    rgba($color-primary-dark, 0.5)
+    rgba($color-white, 1)
   );
-  padding: 5rem;
+
   h1 {
     text-align: center;
     margin-bottom: 2rem;

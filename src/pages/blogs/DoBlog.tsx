@@ -81,9 +81,7 @@ const DoBlog = () => {
           {" "}
           Back{" "}
         </div>
-        <h1 className={styles.header}>
-          Create Your Blog, Use the below controls.
-        </h1>
+        <h1 className={styles.header}>Create your blog, use below controls.</h1>
         <div className={styles.home} onClick={navigateHome}>
           Home
         </div>
@@ -112,22 +110,22 @@ const DoBlog = () => {
             onChange={fieldChangeHandler}
             ref={selectedFieldType}
           >
-            <option value="header">Header</option>
-            <option value="sub_header">Sub Header</option>
-            <option value="text_content">Text Content</option>
+            <option value="header">Title</option>
+            <option value="sub_header">Sub Title</option>
+            <option value="text_content">Content</option>
             <option value="photo">Photo</option>
             <option value="video">Video</option>
           </select>
 
           {fieldType === "header" && (
             <div className={styles.form_group}>
-              <label htmlFor="header" className={styles.form_label}>
-                Header
-              </label>
+              {/* <label htmlFor="header" className={styles.form_label}>
+                Title
+              </label> */}
               <textarea
                 className={styles.form_input + " " + styles.blog_contents}
                 id="header"
-                placeholder="Enter Header"
+                placeholder="Enter Title"
                 rows={3}
                 ref={headerRef}
               ></textarea>
@@ -136,13 +134,13 @@ const DoBlog = () => {
 
           {fieldType === "sub_header" && (
             <div className={styles.form_group}>
-              <label htmlFor="sub_header" className={styles.form_label}>
-                Sub Header
-              </label>
+              {/* <label htmlFor="sub_header" className={styles.form_label}>
+                Sub Title
+              </label> */}
               <textarea
                 className={styles.form_input + " " + styles.blog_contents}
                 id="sub_header"
-                placeholder="Enter Sub Header"
+                placeholder="Enter Sub Title"
                 rows={3}
                 ref={subHeaderRef}
               ></textarea>
@@ -151,9 +149,9 @@ const DoBlog = () => {
 
           {fieldType === "text_content" && (
             <div className={styles.form_group}>
-              <label htmlFor="text-content" className={styles.form_label}>
-                Text Content
-              </label>
+              {/* <label htmlFor="text-content" className={styles.form_label}>
+                Content
+              </label> */}
               <textarea
                 className={styles.form_input + " " + styles.blog_contents}
                 id="text_content"
