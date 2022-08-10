@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
 
-import Blogs from "../../models/blog";
+import Blogs, { Blog } from "../../models/blog";
 
 const blogs: Blogs[] = [];
 
@@ -16,13 +16,17 @@ const blogsSlice = createSlice({
       state.blogs.push(action.payload);
     },
     getBlogs(state, action: PayloadAction<Blogs[]>) {
-      // console.log("action", action.payload);
-      // console.log(action.payload);
       state.blogs = action.payload;
+    },
+    deleteBlog(state, action: PayloadAction<string>) {
+      let nBlog: any = current(state.blogs);
+      state.blogs = nBlog.filter((blog: any) => {
+        return blog._id !== action.payload;
+      });
     },
   },
 });
 
-export const { postBlog, getBlogs } = blogsSlice.actions;
+export const { postBlog, getBlogs, deleteBlog } = blogsSlice.actions;
 
 export default blogsSlice.reducer;
