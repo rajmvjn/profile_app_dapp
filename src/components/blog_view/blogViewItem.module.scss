@@ -1,0 +1,36 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.form_input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  background-color: rgba($color-white, 0.5);
+  border-bottom: 2px solid transparent;
+  width: 100%;
+  display: block;
+  transition: all 0.5s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus:invalid {
+    border-bottom: 2px solid red;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color-gray;
+  }
+}
+
+.edit_label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-gray;
+  display: block;
+  transition: all 0.5s;
+}

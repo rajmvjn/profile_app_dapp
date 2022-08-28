@@ -160,3 +160,10 @@ li.blogs_list {
   flex-grow: 0;
   flex-shrink: 0;
 }
+
+span {
+  img {
+    z-index: 1;
+    color: red;
+  }
+}

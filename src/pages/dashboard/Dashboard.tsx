@@ -148,8 +148,8 @@ const Dashboard: React.FC<{}> = () => {
                 technologies and got experience in React, Angular, HTML, CSS,
                 Nodejs and MongoDB. I got experince in developing hybrid mobile
                 applications with Ionic framework. In the dApp space I have
-                worked on Ethereum and Corda. <br /> Outside work, I love hangs
-                out with family and friends.
+                worked on Ethereum and Corda. <br /> Outside work, I love hang
+                outs with family, friends and sometime solo
                 <span className={styles.emoji}>☺</span>
               </p>
             </div>

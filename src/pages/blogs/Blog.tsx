@@ -13,6 +13,7 @@ import ConfirmModal from "../../components/confirm_modal/ConfirmModal";
 const BlogC = () => {
   const { getBlogsAsync, deleteBlogAsync } = useActions();
   const [blogView, setBlogView] = useState<boolean>(false);
+  const [editView, setEditView] = useState<boolean>(false);
   const [confirmModal, setConfirmModal] = useState<boolean>(false);
   const [confirmId, setConfirmId] = useState<string>("");
   const [blog, setBlog] = useState<any>();
@@ -31,8 +32,9 @@ const BlogC = () => {
     naviagte("/");
   };
 
-  const blogViewHandler = (sBlog: Blog) => {
+  const blogViewHandler = (sBlog: Blog, editFlag: boolean) => {
     setBlogView(true);
+    setEditView(editFlag);
     setBlog(sBlog);
   };
 
@@ -63,13 +65,16 @@ const BlogC = () => {
         <li className={styles.blogs_list} key={index}>
           <span
             className={styles.blogs_list_text + " " + styles.head_list_blog}
-            onClick={blogViewHandler.bind(null, blog)}
+            onClick={blogViewHandler.bind(null, blog, true)}
           >
             {blog.blogs?.fieldValues[0]}
           </span>
           <span className={styles.blogs_list_user}>...</span>
           <div className={styles.blogs_list_action}>
-            <span className={styles.icon_edit}>
+            <span
+              className={styles.icon_edit}
+              onClick={blogViewHandler.bind(null, blog, false)}
+            >
               <img src={imgEdit} alt="edit" />
             </span>
             <span
@@ -94,7 +99,9 @@ const BlogC = () => {
           onConfirm={deleteBlogHandler}
         />
       )}
-      {blogView && <BlogView blog={blog} onClose={closeHandler} />}
+      {blogView && (
+        <BlogView blog={blog} onClose={closeHandler} editVew={editView} />
+      )}
       <div className={styles.blog}>
         <div className={styles.header}>
           <div className={styles.home} onClick={navigateHome}>
