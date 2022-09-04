@@ -16,7 +16,7 @@ const BlogC = () => {
   const [editView, setEditView] = useState<boolean>(false);
   const [confirmModal, setConfirmModal] = useState<boolean>(false);
   const [confirmId, setConfirmId] = useState<string>("");
-  const [blog, setBlog] = useState<any>();
+  let [blog, setBlog] = useState<any>();
 
   useEffect(() => {
     getBlogsAsync();
@@ -60,7 +60,8 @@ const BlogC = () => {
 
   const blogList =
     allBlogs &&
-    allBlogs.map((blog: any, index: any) => {
+    allBlogs.length &&
+    allBlogs?.map((blog: any, index: any) => {
       return (
         <li className={styles.blogs_list} key={index}>
           <span

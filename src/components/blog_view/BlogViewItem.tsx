@@ -1,18 +1,19 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import styles from "./blogViewItem.module.scss";
 
 const BlogViewItem: React.FC<{
   fType: string;
   fValue: string;
   editVewItem: boolean;
-  intemIndex: number;
+  intemIndex: any;
   editHandler: (index: string, data: any) => void;
-}> = ({ fType, fValue, editVewItem, intemIndex }) => {
+}> = ({ fType, fValue, editVewItem, intemIndex, editHandler }) => {
   let cmp = null;
+  const [currentFValue, setCurrentFValue] = useState(fValue);
 
   const fieldEditHandler = (event: any) => {
-    console.log(event.target.value);
-    event.target.value = event.target.value;
+    setCurrentFValue(event.target.value);
+    editHandler(intemIndex, event.target.value);
   };
 
   if (fType === "header") {
@@ -28,7 +29,7 @@ const BlogViewItem: React.FC<{
               id={`header_${intemIndex}`}
               placeholder="Title"
               rows={1}
-              value={fValue}
+              value={currentFValue}
               onChange={fieldEditHandler}
             />
           </h1>
@@ -55,7 +56,8 @@ const BlogViewItem: React.FC<{
               id={`sub_header_${intemIndex}`}
               placeholder="Sub Title"
               rows={2}
-              value={fValue}
+              value={currentFValue}
+              onChange={fieldEditHandler}
             />
           </h2>
         </>
@@ -81,7 +83,8 @@ const BlogViewItem: React.FC<{
               id={`text_content_${intemIndex}`}
               placeholder="Content"
               rows={6}
-              value={fValue}
+              value={currentFValue}
+              onChange={fieldEditHandler}
             />
           </h2>
         </>

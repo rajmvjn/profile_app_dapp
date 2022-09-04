@@ -39,8 +39,7 @@ const DoBlog = () => {
         fieldValues,
       },
     };
-    const letsSee = postBlogAsync(blog);
-    console.log(letsSee);
+    postBlogAsync(blog);
   };
 
   const removeFieldHandler = (index: number) => {

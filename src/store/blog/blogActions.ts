@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { postBlog, getBlogs, deleteBlog } from "./blogSlice";
+import { postBlog, getBlogs, deleteBlog, updateBlog } from "./blogSlice";
 import axiosClient from "../../utils/axiosClient";
 import API_ENDPOINTS from "../../constants/apiEndPoints";
 import { updateStatus } from "../http/httpReqStatusSlice";
@@ -14,6 +14,25 @@ export const postBlogAsync = (blog: Blog) => {
         updateStatus({ isLoading: false, message: response.data.message })
       );
       dispatch(postBlog(response.data));
+    } catch (error) {
+      dispatch(updateStatus({ isLoading: false }));
+      console.log(error);
+    }
+  };
+};
+
+export const updateBlogAsync = (blog: Blog) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      dispatch(updateStatus({ isLoading: true }));
+      const response = await axiosClient.patch(
+        `${API_ENDPOINTS.BLOG_API}/${blog._id}`,
+        blog.blogs
+      );
+      dispatch(
+        updateStatus({ isLoading: false, message: response.data.message })
+      );
+      dispatch(updateBlog(blog));
     } catch (error) {
       dispatch(updateStatus({ isLoading: false }));
       console.log(error);

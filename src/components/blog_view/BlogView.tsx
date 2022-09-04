@@ -1,6 +1,8 @@
 import styles from "./blogView.module.scss";
 import { Blog } from "../../models/blog";
 import BlogViewItem from "./BlogViewItem";
+import { useActions } from "../../hooks/useActions";
+import _ from "lodash";
 // import { useState } from "react";
 
 const BlogView: React.FC<{
@@ -9,12 +11,21 @@ const BlogView: React.FC<{
   editVew: boolean;
 }> = ({ blog, onClose, editVew }) => {
   // const [editView, setEditView] = useState<boolean>(editVew);
+  let editedBlogs = _.cloneDeep(blog);
+
+  const { updateBlogAsync } = useActions();
 
   const closeEditBlogHandler = () => {
     onClose();
   };
 
-  const editBlogHandler = (index: string, data: any) => {};
+  const editBlogHandler = (index: any, data: any) => {
+    editedBlogs.blogs.fieldValues[index] = data;
+  };
+
+  const blogUpdateHandler = () => {
+    updateBlogAsync(editedBlogs);
+  };
 
   return (
     <div className={styles.blog_view}>
@@ -40,7 +51,11 @@ const BlogView: React.FC<{
             </div>
           );
         })}
-        {!editVew && <button className={styles.update_btn}>Update</button>}
+        {!editVew && (
+          <button className={styles.update_btn} onClick={blogUpdateHandler}>
+            Update
+          </button>
+        )}
       </div>
     </div>
   );
