@@ -80,7 +80,7 @@ const DoBlog = () => {
           {" "}
           Back{" "}
         </div>
-        <h1 className={styles.header}>Create your blog, use below controls.</h1>
+        <h1 className={styles.header}>Create blog, use below controls.</h1>
         <div className={styles.home} onClick={navigateHome}>
           Home
         </div>
@@ -147,17 +147,23 @@ const DoBlog = () => {
           )}
 
           {fieldType === "text_content" && (
-            <div className={styles.form_group}>
-              {/* <label htmlFor="text-content" className={styles.form_label}>
+            <div>
+              <div className={styles.note}>
+                <b>Note:</b>{" "}
+                {` For new paragraph use <p> and to end the same paragraph use </p>.`}
+              </div>
+              <div className={styles.form_group}>
+                {/* <label htmlFor="text-content" className={styles.form_label}>
                 Content
               </label> */}
-              <textarea
-                className={styles.form_input + " " + styles.blog_contents}
-                id="text_content"
-                placeholder="Enter Content"
-                rows={3}
-                ref={contentRef}
-              ></textarea>
+                <textarea
+                  className={styles.form_input + " " + styles.blog_contents}
+                  id="text_content"
+                  placeholder="Enter Content"
+                  rows={3}
+                  ref={contentRef}
+                ></textarea>
+              </div>
             </div>
           )}
           {/* 

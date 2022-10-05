@@ -13,10 +13,13 @@
 
 .header {
   border-bottom: 1px solid $color-gray-light;
-  padding-top: 2rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include respond(phone) {
+    padding: 0.5rem 2rem;
+  }
 }
 
 .create_btn {

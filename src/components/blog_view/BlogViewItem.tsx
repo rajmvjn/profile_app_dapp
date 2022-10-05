@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
+import parse from "html-react-parser";
 import styles from "./blogViewItem.module.scss";
 
 const BlogViewItem: React.FC<{
@@ -90,7 +91,7 @@ const BlogViewItem: React.FC<{
         </>
       );
     } else {
-      cmp = <p>{fValue} </p>;
+      cmp = parse(`<p>${fValue}</p>`);
     }
   }
 

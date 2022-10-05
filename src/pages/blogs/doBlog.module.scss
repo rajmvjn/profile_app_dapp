@@ -192,3 +192,11 @@ button {
     }
   }
 }
+
+.note {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+  @include respond(phone) {
+    font-size: 1rem;
+  }
+}
