@@ -13,7 +13,7 @@
 
 .header {
   border-bottom: 1px solid $color-gray-light;
-  padding: 1rem 2rem;
+  padding-top: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,23 +60,25 @@
 
 li.blogs_list {
   list-style: none;
-  height: 2rem;
+  // min-height: 1rem;
   background-color: $color-primary-light;
   width: 80%;
   margin: 2px auto;
   display: flex;
   align-items: center;
-  // justify-content: space-between;
-  padding: 2rem;
+  column-gap: 1rem;
+  padding: 1rem;
   font-size: 1.6rem;
   @include respond(tab-port) {
     font-size: 1.5rem;
     width: 90%;
+    column-gap: 0.7rem;
   }
 
   @include respond(phone) {
     font-size: 1.4rem;
     width: 95%;
+    column-gap: 0.5rem;
   }
 }
 
@@ -159,6 +161,9 @@ li.blogs_list {
   flex-basis: 25%;
   flex-grow: 0;
   flex-shrink: 0;
+  @include respond(phone) {
+    flex-basis: 22%;
+  }
 }
 
 span {

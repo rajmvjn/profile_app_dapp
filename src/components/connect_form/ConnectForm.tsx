@@ -24,7 +24,6 @@ const ConnectForm: React.FC = () => {
       phone: phoneRef.current!.value,
       comment: commentRef.current!.value,
     };
-    console.log(comment);
     postCommentAsync(comment);
   };
 
