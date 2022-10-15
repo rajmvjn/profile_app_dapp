@@ -68,7 +68,7 @@ const BlogC = () => {
             className={styles.blogs_list_text + " " + styles.head_list_blog}
             onClick={blogViewHandler.bind(null, blog, true)}
           >
-            {blog.blogs?.fieldValues[0]}
+            {blog.blogs.fieldValues[0]}
           </span>
           <span className={styles.blogs_list_user}>...</span>
           <div className={styles.blogs_list_action}>

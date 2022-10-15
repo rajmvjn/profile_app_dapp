@@ -200,3 +200,58 @@ button {
     font-size: 1rem;
   }
 }
+
+.photo_upload {
+  display: inline-block;
+  margin: 0;
+  padding: 0.2em 0.5em;
+  padding: 0.2rem 0.5rem;
+  text-align: center;
+  outline: none;
+  border: none;
+  background: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.photo_upload::file-selector-button {
+  /* firefox */
+  display: inline-block;
+  margin: 0rem 1rem 0rem 0rem;
+  padding: 0.18em 0.5em;
+  padding: 0.18rem 0.5rem;
+  -webkit-appearance: button;
+  text-align: center;
+  border-radius: 0.1rem 0rem 0rem 0.1rem;
+  outline: none;
+  border: none;
+  border-right: 2px solid #bbb;
+  background: #eee;
+  white-space: nowrap;
+  cursor: pointer;
+}
+/* CHROME AND EDGE UPLOAD BUTTON STYLE */
+.photo_upload::-webkit-file-upload-button {
+  /* chrome and edge */
+  display: inline-block;
+  margin: 0rem 1rem 0rem 0rem;
+  padding: 0.19em 0.5em;
+  padding: 0.19rem 0.5rem;
+  -webkit-appearance: button;
+  text-align: center;
+  border-radius: 0.1rem 0rem 0rem 0.1rem;
+  outline: none;
+  border: none;
+  border-right: 2px solid #bbb;
+  background: #eee;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.preview_img {
+  height: 25rem;
+}
+
+.img_cntr {
+  text-align: center;
+}

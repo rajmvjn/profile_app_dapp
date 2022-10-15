@@ -1,15 +1,16 @@
 import { Dispatch } from "redux";
 import { postBlog, getBlogs, deleteBlog, updateBlog } from "./blogSlice";
-import axiosClient from "../../utils/axiosClient";
+import axiosClient, { axiosClientMultipart } from "../../utils/axiosClient";
 import API_ENDPOINTS from "../../constants/apiEndPoints";
 import { updateStatus } from "../http/httpReqStatusSlice";
 import { Blog } from "../../models/blog";
 
-export const postBlogAsync = (blog: Blog) => {
+export const postBlogAsync = (blog: any, ctype: string) => {
   return async (dispatch: Dispatch) => {
     try {
+      const httpClient = ctype ? axiosClientMultipart : axiosClient;
       dispatch(updateStatus({ isLoading: true }));
-      const response = await axiosClient.post(API_ENDPOINTS.BLOG_API, blog);
+      const response = await httpClient.post(API_ENDPOINTS.BLOG_API, blog);
       dispatch(
         updateStatus({ isLoading: false, message: response.data.message })
       );

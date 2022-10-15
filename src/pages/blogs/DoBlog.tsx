@@ -4,17 +4,19 @@ import { useAppSelector } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { useActions } from "../../hooks/useActions";
 import { Blog } from "../../models/blog";
+let photoList: any[] = [];
 
 const DoBlog = () => {
   const navigate = useNavigate();
   const headerRef = useRef<HTMLTextAreaElement>(null);
   const subHeaderRef = useRef<HTMLTextAreaElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
+  const photoRef = useRef<HTMLInputElement>(null);
   const selectedFieldType = useRef<HTMLSelectElement>(null);
   const [fieldTypes, setFieldTypes] = useState<string[]>([]);
 
   const [fieldType, setFieldType] = useState("header");
-  const [fieldValues, setFieldValues] = useState<string[]>([]);
+  const [fieldValues, setFieldValues] = useState<any[]>([]);
 
   const { user } = useAppSelector((state) => state.user);
   const { postBlogAsync } = useActions();
@@ -32,14 +34,20 @@ const DoBlog = () => {
   };
 
   const blogCreateHandler = () => {
-    const blog: Blog = {
-      userId: user._id,
+    const formData = new FormData();
+    for (let i = 0; i < photoList.length; i++) {
+      formData.append("photo", photoList[i]);
+    }
+
+    const blog: any = {
+      userId: "user._id",
       blogs: {
         fieldTypes,
         fieldValues,
       },
     };
-    postBlogAsync(blog);
+    formData.append("blog", JSON.stringify(blog));
+    postBlogAsync(formData, "multipart/form-data");
   };
 
   const removeFieldHandler = (index: number) => {
@@ -50,12 +58,14 @@ const DoBlog = () => {
     const newfieldTypes = [...fieldTypes];
     newfieldTypes.splice(index, 1);
     setFieldTypes(newfieldTypes);
+
+    photoList.splice(index, 1);
   };
 
   const formSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     setFieldTypes((oldList: string[]) => [...oldList, fieldType]);
-    let currentFieldValue: string = "";
+    let currentFieldValue: any = "";
     switch (fieldType) {
       case "header":
         currentFieldValue = headerRef.current!.value;
@@ -68,6 +78,12 @@ const DoBlog = () => {
       case "text_content":
         currentFieldValue = contentRef.current!.value;
         contentRef.current!.value = "";
+        break;
+      case "photo":
+        let file: any = photoRef.current!.files;
+        photoList.push(file[0]);
+        console.log(photoList);
+        currentFieldValue = URL.createObjectURL(file[0]);
         break;
     }
     setFieldValues((oldValues: string[]) => [...oldValues, currentFieldValue]);
@@ -166,10 +182,22 @@ const DoBlog = () => {
               </div>
             </div>
           )}
-          {/* 
-            photo upload 
+          {
+            fieldType === "photo" && (
+              <div className={styles.form_group}>
+                <input
+                  type="file"
+                  accept="image/*"
+                  title="Upload Image"
+                  className={styles.photo_upload}
+                  ref={photoRef}
+                />
+              </div>
+            )
+            /*             
             video upload
-          */}
+          */
+          }
           <button className={styles.add_content}>Add</button>
         </form>
       </div>
@@ -177,7 +205,17 @@ const DoBlog = () => {
         {fieldTypes.map((blogItem, index) => {
           return (
             <div key={index} className={styles.blog_field_content}>
-              {fieldValues[index]}{" "}
+              {blogItem !== "photo" ? (
+                fieldValues[index]
+              ) : (
+                <div className={styles.img_cntr}>
+                  <img
+                    className={styles.preview_img}
+                    alt="img"
+                    src={fieldValues[index]}
+                  />
+                </div>
+              )}
               <span
                 onClick={removeFieldHandler.bind(null, index)}
                 className={styles.remove_btn}
