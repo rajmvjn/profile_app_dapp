@@ -34,3 +34,26 @@
   display: block;
   transition: all 0.5s;
 }
+
+.img_ctnr {
+  text-align: center;
+}
+
+.blog_img {
+  width: 75%;
+  @include respond(big-desktop) {
+    width: 50%;
+  }
+  @include respond(tab-land) {
+    width: 60%;
+  }
+  @include respond(tab-port) {
+    width: 70%;
+  }
+  @include respond(phone) {
+    width: 80%;
+  }
+  @include respond(phone-small) {
+    width: 85%;
+  }
+}

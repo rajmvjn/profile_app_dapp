@@ -1,5 +1,6 @@
 import { useState } from "react";
 import parse from "html-react-parser";
+import API_ENDPOINTS from "../../constants/apiEndPoints";
 import styles from "./blogViewItem.module.scss";
 
 const BlogViewItem: React.FC<{
@@ -93,6 +94,18 @@ const BlogViewItem: React.FC<{
     } else {
       cmp = parse(`<p>${fValue}</p>`);
     }
+  }
+
+  if (fType === "photo") {
+    cmp = (
+      <div className={styles.img_ctnr}>
+        <img
+          className={styles.blog_img}
+          src={`${API_ENDPOINTS.API_BASE_URL}img/blog/${fValue}`}
+          alt="blog images"
+        />
+      </div>
+    );
   }
 
   return <div>{cmp}</div>;

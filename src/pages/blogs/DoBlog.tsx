@@ -36,7 +36,7 @@ const DoBlog = () => {
   const blogCreateHandler = () => {
     const formData = new FormData();
     for (let i = 0; i < photoList.length; i++) {
-      formData.append("photo", photoList[i]);
+      formData.append("photos", photoList[i]);
     }
 
     const blog: any = {
