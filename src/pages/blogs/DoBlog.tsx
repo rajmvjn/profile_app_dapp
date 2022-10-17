@@ -38,7 +38,7 @@ const DoBlog = () => {
     for (let i = 0; i < photoList.length; i++) {
       formData.append("photos", photoList[i]);
     }
-
+    photoList = [];
     const blog: any = {
       userId: "user._id",
       blogs: {

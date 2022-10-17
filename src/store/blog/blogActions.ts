@@ -57,12 +57,14 @@ export const getBlogsAsync = () => {
   };
 };
 
-export const deleteBlogAsync = (id: string) => {
+export const deleteBlogAsync = (id: string, blog: Blog) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(updateStatus({ isLoading: true }));
+      console.log(blog.blogs);
       const response = await axiosClient.delete(
-        `${API_ENDPOINTS.BLOG_API}/${id}`
+        `${API_ENDPOINTS.BLOG_API}/${id}`,
+        { data: { blog: blog.blogs } }
       );
       dispatch(
         updateStatus({ isLoading: false, message: response.data.message })

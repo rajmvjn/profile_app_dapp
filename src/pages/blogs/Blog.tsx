@@ -48,7 +48,8 @@ const BlogC = () => {
   };
 
   const deleteBlogHandler = () => {
-    deleteBlogAsync(confirmId);
+    const delBlog = allBlogs.filter((blog: Blog) => blog._id === confirmId);
+    deleteBlogAsync(confirmId, delBlog[0]);
     setConfirmModal(false);
     setConfirmId("");
   };
