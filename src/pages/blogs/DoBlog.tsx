@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { useAppSelector } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { useActions } from "../../hooks/useActions";
-import { Blog } from "../../models/blog";
+// import { Blog } from "../../models/blog";
 let photoList: any[] = [];
 
 const DoBlog = () => {
@@ -18,7 +18,10 @@ const DoBlog = () => {
   const [fieldType, setFieldType] = useState("header");
   const [fieldValues, setFieldValues] = useState<any[]>([]);
 
-  const { user } = useAppSelector((state) => state.user);
+  // const { user } = useAppSelector((state) => state.user);
+  // const { requstStatus } = useAppSelector((state) => state.httpReqStatus);
+  // console.log("fuck");
+  // console.log(requstStatus);
   const { postBlogAsync } = useActions();
 
   const navigateHome = () => {
@@ -47,7 +50,15 @@ const DoBlog = () => {
       },
     };
     formData.append("blog", JSON.stringify(blog));
-    postBlogAsync(formData, "multipart/form-data");
+    const wgr: any = postBlogAsync(formData, "multipart/form-data");
+    try {
+    } catch (error) {}
+    wgr
+      .then((data: any) => {
+        console.log(wgr);
+        navigateListing();
+      })
+      .catch((err: any) => navigateListing());
   };
 
   const removeFieldHandler = (index: number) => {
