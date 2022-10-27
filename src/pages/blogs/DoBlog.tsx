@@ -176,8 +176,7 @@ const DoBlog = () => {
           {fieldType === "text_content" && (
             <div>
               <div className={styles.note}>
-                <b>Note:</b>{" "}
-                {` For new paragraph use <p> and to end the same paragraph use </p>.`}
+                <b>Note:</b> {` For a new paragraph, please start with <p>.`}
               </div>
               <div className={styles.form_group}>
                 {/* <label htmlFor="text-content" className={styles.form_label}>
