@@ -9,6 +9,7 @@ import { Blog } from "../../models/blog";
 import imgEdit from "../../assets/images/svgs/compose.svg";
 import imgDel from "../../assets/images/svgs/trash.svg";
 import ConfirmModal from "../../components/confirm_modal/ConfirmModal";
+import Toast from "../../components/toast/Toast";
 
 const BlogC = () => {
   const { getBlogsAsync, deleteBlogAsync } = useActions();
@@ -17,6 +18,7 @@ const BlogC = () => {
   const [confirmModal, setConfirmModal] = useState<boolean>(false);
   const [confirmId, setConfirmId] = useState<string>("");
   let [blog, setBlog] = useState<any>();
+  const [showToast, setShowToast] = useState<boolean>(false);
 
   useEffect(() => {
     getBlogsAsync();
@@ -52,6 +54,10 @@ const BlogC = () => {
     deleteBlogAsync(confirmId, delBlog[0]);
     setConfirmModal(false);
     setConfirmId("");
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
   };
 
   const closeModalHandler = () => {
@@ -92,6 +98,7 @@ const BlogC = () => {
 
   return (
     <>
+      {showToast && <Toast msg="Deleted successfully.." />}
       {confirmModal && (
         <ConfirmModal
           header={"Are You Sure?"}
