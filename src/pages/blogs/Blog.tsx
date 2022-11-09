@@ -19,6 +19,7 @@ const BlogC = () => {
   const [confirmId, setConfirmId] = useState<string>("");
   let [blog, setBlog] = useState<any>();
   const [showToast, setShowToast] = useState<boolean>(false);
+  const [toastMsg, setToastMsg] = useState<string>("");
 
   useEffect(() => {
     getBlogsAsync();
@@ -55,7 +56,9 @@ const BlogC = () => {
     setConfirmModal(false);
     setConfirmId("");
     setShowToast(true);
+    setToastMsg("Blog is deleted..");
     setTimeout(() => {
+      setToastMsg("");
       setShowToast(false);
     }, 2000);
   };
@@ -98,7 +101,7 @@ const BlogC = () => {
 
   return (
     <>
-      {showToast && <Toast msg="Deleted successfully.." />}
+      {showToast && <Toast msg={toastMsg} />}
       {confirmModal && (
         <ConfirmModal
           header={"Are You Sure?"}

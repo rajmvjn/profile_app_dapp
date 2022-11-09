@@ -186,7 +186,7 @@ const DoBlog = () => {
                   className={styles.form_input + " " + styles.blog_contents}
                   id="text_content"
                   placeholder="Enter Content"
-                  rows={3}
+                  rows={6}
                   ref={contentRef}
                 ></textarea>
               </div>
