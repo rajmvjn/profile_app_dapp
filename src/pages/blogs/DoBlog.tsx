@@ -20,8 +20,7 @@ const DoBlog = () => {
 
   // const { user } = useAppSelector((state) => state.user);
   // const { requstStatus } = useAppSelector((state) => state.httpReqStatus);
-  // console.log("fuck");
-  // console.log(requstStatus);
+
   const { postBlogAsync } = useActions();
 
   const navigateHome = () => {

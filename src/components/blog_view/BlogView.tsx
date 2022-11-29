@@ -38,19 +38,20 @@ const BlogView: React.FC<{
             Cancel
           </button>
         )}
-        {blog.blogs.fieldTypes.map((fieldType: any, index: any) => {
-          return (
-            <div key={index}>
-              <BlogViewItem
-                fType={fieldType}
-                fValue={blog.blogs.fieldValues[index]}
-                editVewItem={editVew}
-                intemIndex={index}
-                editHandler={editBlogHandler}
-              />
-            </div>
-          );
-        })}
+        {blog.blogs &&
+          blog.blogs.fieldTypes.map((fieldType: any, index: any) => {
+            return (
+              <div key={index}>
+                <BlogViewItem
+                  fType={fieldType}
+                  fValue={blog.blogs.fieldValues[index]}
+                  editVewItem={editVew}
+                  intemIndex={index}
+                  editHandler={editBlogHandler}
+                />
+              </div>
+            );
+          })}
         {!editVew && (
           <button className={styles.update_btn} onClick={blogUpdateHandler}>
             Update

@@ -27,6 +27,11 @@ const routes = [
     exact: true,
   },
   {
+    path: "/blogs/:bid",
+    element: Blog,
+    exact: true,
+  },
+  {
     path: "/doblog",
     element: DoBlog,
     exact: true,

@@ -1,5 +1,5 @@
 import styles from "./blog.module.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useActions } from "../../hooks/useActions";
 import { useEffect, useState } from "react";
@@ -21,6 +21,8 @@ const BlogC = () => {
   const [showToast, setShowToast] = useState<boolean>(false);
   const [toastMsg, setToastMsg] = useState<string>("");
 
+  const { bid } = useParams();
+
   useEffect(() => {
     getBlogsAsync();
   }, []);
@@ -28,6 +30,11 @@ const BlogC = () => {
   const allBlogs: any = useAppSelector((state) => state.blogs.blogs);
 
   const naviagte = useNavigate();
+
+  const viewCloseHandler = () => {
+    naviagte("/blogs");
+  };
+
   const blogCreateHandler = () => {
     naviagte("/doblog");
   };
@@ -67,6 +74,13 @@ const BlogC = () => {
     setConfirmModal(false);
     setConfirmId("");
   };
+
+  if (bid && allBlogs.length) {
+    const sBlog = allBlogs.filter((blog: Blog) => blog._id === bid);
+    return (
+      <BlogView blog={sBlog[0]} onClose={viewCloseHandler} editVew={true} />
+    );
+  }
 
   const blogList =
     allBlogs &&
@@ -114,6 +128,7 @@ const BlogC = () => {
       {blogView && (
         <BlogView blog={blog} onClose={closeHandler} editVew={editView} />
       )}
+
       <div className={styles.blog}>
         <div className={styles.header}>
           <div className={styles.home} onClick={navigateHome}>
