@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 import pdf from "../../assets/docs/rajesh.pdf";
 import Login from "../popups/login/Login";
+import { getJwt } from "../../utils";
 
 const Header: React.FC<{
   homeRef: any;
@@ -61,12 +62,14 @@ const Header: React.FC<{
         }
       >
         <ul className={styles.nav}>
-          <li
-            className={styles.nav_item + " " + styles.nav_item_blog}
-            onClick={blogNavHandler}
-          >
-            Blogs
-          </li>
+          {getJwt() && (
+            <li
+              className={styles.nav_item + " " + styles.nav_item_blog}
+              onClick={blogNavHandler}
+            >
+              Blogs
+            </li>
+          )}
           <li
             className={styles.nav_item + " " + styles.nav_item_dapp}
             onClick={() => props.onScroll(props.dappRef)}

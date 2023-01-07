@@ -25,6 +25,7 @@ const routes = [
     path: "/blogs",
     element: Blog,
     exact: true,
+    protected: true,
   },
   {
     path: "/blogs/:bid",
@@ -35,6 +36,7 @@ const routes = [
     path: "/doblog",
     element: DoBlog,
     exact: true,
+    protected: true,
   },
 ];
 

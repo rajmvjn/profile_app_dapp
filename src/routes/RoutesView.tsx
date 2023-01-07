@@ -12,11 +12,7 @@ const RoutesView: React.FC<{ dappRef: any; connectRef: any; aboutRef: any }> = (
       {routes.map((route, index) => {
         if (route.protected && !jwtToken) {
           return (
-            <Route
-              key={index}
-              path="/admindashboard"
-              element={<Navigate replace to="/" />}
-            />
+            <Route key={index} path="/" element={<Navigate replace to="/" />} />
           );
         } else {
           return (
