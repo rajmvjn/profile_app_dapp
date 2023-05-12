@@ -130,10 +130,10 @@ const Dashboard: React.FC<{}> = () => {
               </figcaption>
             </figure>
             <div className={styles.main_about_content_text}>
-              <h3 className={styles.main_about_content_text_head}>
+              {/* <h3 className={styles.main_about_content_text_head}>
                 I Rajesh, a web developer with an interest in blockchain, dApp
                 and DeFi.
-              </h3>
+              </h3> */}
               <p className={styles.main_about_content_text_pgh}>
                 {/* I love hangs out with family, I love sit back and just look at
                 life, I love travel, love reading sometimes, loved most of the
@@ -143,13 +143,18 @@ const Dashboard: React.FC<{}> = () => {
                 NFT. I guess thats it, not of a big deal, always wanted though,
                 may be next time too lazy this time, still trying to win over it
                 though. */}
-                I am a computer science graduate with experience around 12 years
-                in software development. I mostly work on javascript and related
-                technologies and got experience in React, Angular, HTML, CSS,
-                Nodejs and MongoDB. I got experince in developing hybrid mobile
-                applications with Ionic framework. In the dApp space I have
-                worked on Ethereum and Corda. <br /> Outside work, I love hang
-                outs with family, friends and sometime solo
+                Greetings! My name is Rajesh, and I am a computer science
+                graduate with over 12 years of experience in software
+                development. I have a keen interest in blockchain technology and
+                its applications, particularly in the areas of dApps and DeFi.
+                My expertise lies primarily in JavaScript and its associated
+                technologies, including React, Angular, HTML, CSS, Node.js, and
+                MongoDB. I also have experience developing hybrid mobile
+                applications using the Ionic framework. In the dApp space, I
+                have worked with Ethereum and Corda, gaining valuable insights
+                into the decentralized ecosystem. When not immersed in work, I
+                enjoy spending quality time with my family, friends, and
+                sometimes even flying solo.
                 <span className={styles.emoji}>☺</span>
               </p>
             </div>

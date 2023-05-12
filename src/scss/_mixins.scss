@@ -57,6 +57,11 @@ ORDER: Base + typography > general layout + grid > page layout > components
       @content;
     } //1800
   }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 76em) {
+      @content;
+    } //1800
+  }
 }
 
 //header icon manager

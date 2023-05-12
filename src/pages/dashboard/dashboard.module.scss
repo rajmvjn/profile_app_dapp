@@ -48,19 +48,19 @@
     @include respond(tab-land) {
       width: 75%;
       padding-right: 1rem;
-      height: 30rem;
+      height: 40rem;
     }
 
     @include respond(tab-port) {
       width: 80%;
       padding-right: 1rem;
-      height: 35rem;
+      height: 45rem;
     }
 
     @include respond(phone) {
       width: 85%;
       padding-right: 1rem;
-      height: 40rem;
+      height: 50rem;
       transform: skewX(-5deg);
       & > * {
         transform: skewX(5deg);
@@ -70,7 +70,7 @@
     @include respond(phone-small) {
       width: 85%;
       padding-right: 1rem;
-      height: 45rem;
+      height: 50rem;
 
       transform: skewX(-4deg);
       & > * {
@@ -81,7 +81,7 @@
     @include respond(phone-too-small) {
       width: 85%;
       padding-right: 1rem;
-      height: 65rem;
+      height: 70rem;
 
       transform: skewX(-2deg);
       & > * {
